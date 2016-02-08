@@ -14,7 +14,7 @@ function xmldb_auth_whia_upgrade($oldversion) {
     global $DB;
     $dbman = $DB->get_manager();
 
-    /// Add a new table mdl_auth_rsa_cpdlog to plugin
+    /// Add a new table mdl_auth_whia_domain to plugin
     if ($oldversion < 2016020802) {
 
         // Define table auth_rsa_cpdlog to be created.
@@ -24,7 +24,6 @@ function xmldb_auth_whia_upgrade($oldversion) {
         $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
         $table->add_field('name', XMLDB_TYPE_CHAR, '50', null, XMLDB_NOTNULL, null, null);
 
-
         // Adding keys to table auth_rsa_cpdlog.
         $table->add_key('primary', XMLDB_KEY_PRIMARY, array('id'));
 
@@ -33,8 +32,8 @@ function xmldb_auth_whia_upgrade($oldversion) {
             $dbman->create_table($table);
         }
 
-        // Rsa savepoint reached.
-        upgrade_plugin_savepoint(true, 2016020801, 'auth', 'whia');
+        // WHIA savepoint reached.
+        upgrade_plugin_savepoint(true, 2016020802, 'auth', 'whia');
     }
     return true;
 }
