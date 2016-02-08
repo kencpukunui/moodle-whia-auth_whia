@@ -44,7 +44,7 @@ To help us ensure this information is relevant please tell us whether you are fr
 <p>If you are not from either and would just like to complete the training for your own information please select the
 “I’m not from a Business” option.</p>
 ';
-
+$string['pluginname'] = 'WHIA Email to Cohort';
 $string['text:failed'] = 'Failed to create a new email domain';
 $string['text:success'] = 'New email domain created';
 $string['whia:domainconfig'] = 'Email to Cohorts';
