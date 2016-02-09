@@ -36,7 +36,7 @@ function xmldb_auth_whia_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2016020802, 'auth', 'whia');
     }
 
-    if ($oldversion < 2016020812) {
+    if ($oldversion < 2016020813) {
 
         // Define field cohortid to be added to auth_whia_domain.
         $table = new xmldb_table('auth_whia_domain');
@@ -48,6 +48,6 @@ function xmldb_auth_whia_upgrade($oldversion) {
         }
 
         // Monitor savepoint reached.
-        upgrade_plugin_savepoint(true, 2016020812, 'tool', 'monitor');
+        upgrade_plugin_savepoint(true, 2016020813, 'tool', 'monitor');
     }
 }
