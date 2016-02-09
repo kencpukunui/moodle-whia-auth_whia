@@ -12,7 +12,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$string['button:add'] = 'Add domain';
+$string['button:save'] = 'Add domain';
 $string['button:update'] = 'Update domain';
 $string['domain:currentname'] = 'Current Email domain';
 $string['domain:add'] = 'Email domain added: {$a}';
