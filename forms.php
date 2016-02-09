@@ -33,6 +33,7 @@ class auth_whia_domainform extends moodleform {
         $mform          =& $this->_form;
         $id             = $this->_customdata;
         $strrequired    = get_string('required');
+        $domain         = null;
 
         $mform->addElement('hidden', 'id');
         $mform->setType('id', PARAM_INT);
@@ -55,14 +56,12 @@ class auth_whia_domainform extends moodleform {
             SELECT id,name from {cohort} ORDER BY name
         ";
 
-        $cohortsmenu = array("selectacohort" => "Select a cohort");
+        $cohortsmenu = array("domain:form:cohort" => "Select a cohort");
 
         if ($cohorts = $DB->get_records_sql_menu($sql, null)) {
             foreach ($cohorts as $id => $name) {
                 $cohortsmenu["$id"] = $name;
             }
-
-print_object($cohorts);
             $cohortselect = $mform->addElement('select', 'cohortid', get_string('domain:cohort', 'auth_whia'), $cohortsmenu);
             $cohortselect->setSelected($domain->cohortid);
 //  array_merge(array(get_string('selectasuburb', 'auth_whia')),

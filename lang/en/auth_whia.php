@@ -12,16 +12,18 @@
 
 defined('MOODLE_INTERNAL') || die;
 $string['button:save'] = 'Save domain';
-$string['domain:currentname'] = 'Current Email domain';
 $string['domain:add'] = 'Email domain added: {$a}';
+$string['domain:cohort'] = 'Cohort';
+$string['domain:currentname'] = 'Current Email domain';
 $string['domain:delete'] = 'Email domain deleted: {$a}';
-$string['domain:error:delete'] = 'Error deleting record';
-$string['domain:delete:heading'] = 'Email domain deletion';
 $string['domain:delete:confirm'] = 'Are you absolutely sure you want to delete email domain: {$a}?';
+$string['domain:delete:heading'] = 'Email domain deletion';
+$string['domain:error:delete'] = 'Error deleting record';
 $string['domain:error:exists'] = 'Email domain already exists';
 $string['domain:error:insert'] = 'There was a problem inserting the record in the database';
 $string['domain:error:select'] = 'Error retrieving record';
 $string['domain:error:update'] = 'There was a problem updating the record in the database';
+$string['domain:form:cohort'] = 'Select a cohort';
 $string['domain:heading'] = 'Email Domain Cohort Enrolment';
 $string['domain:insert'] = 'Email domain added';
 $string['domain:missing:domain'] = 'Email domain is required';
