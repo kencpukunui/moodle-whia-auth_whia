@@ -69,7 +69,7 @@ if ($form->is_cancelled()) { // Form cancelled?
 }
 
 echo $OUTPUT->header();
-    print_object(get_defined_vars());
+print_object($_POST);
 if (!empty($delete)) {
 
     $domainname = $DB->get_field('auth_whia_domain', 'name', array('id' => $delete));
