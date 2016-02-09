@@ -34,6 +34,16 @@ $PAGE->set_title("WHIA - Domains");
 $PAGE->set_pagelayout('report');
 $PAGE->set_heading("WHIA");
 
+if ($delete and !empty($confirm)) {
+    if ($DB->delete_records('auth_whia_domain', array('id' => $delete))) {
+        $strcontinue = get_string('domain:delete', 'auth_whia');
+    } else {
+        $strcontinue = get_string('domain:error:delete', 'auth_whia');
+    }
+    redirect(new moodle_url($returnurl), $strcontinue);
+    exit;
+}
+
 $form = new auth_whia_domainform(null, $id);
 
 if ($form->is_cancelled()) { // Form cancelled?
@@ -41,15 +51,6 @@ if ($form->is_cancelled()) { // Form cancelled?
     exit;
 } else if ($data = $form->get_data()) { // Form submitted?
 
-    if ($data->delete and isset($data->confirm)) {
-        if ($DB->delete_records('auth_whia_domain', array('id' => $data->delete))) {
-            $strcontinue = get_string('domain:delete', 'auth_whia');
-        } else {
-            $strcontinue = get_string('domain:error:delete', 'auth_whia');
-        }
-        redirect(new moodle_url($returnurl), $strcontinue);
-        exit;
-    }
     if ($data->id) {
         if ($DB->update_record('auth_whia_domain', $data)) {
             $strcontinue = get_string('domain:update', 'auth_whia');
