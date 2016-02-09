@@ -30,10 +30,9 @@ class auth_whia_domainform extends moodleform {
     public function definition() {
         global $DB;
 
-        $mform =& $this->_form;
-        $id = $this->_customdata;
-
-        $strrequired = get_string('required');
+        $mform          =& $this->_form;
+        $id             = $this->_customdata;
+        $strrequired    = get_string('required');
 
         $mform->addElement('hidden', 'id');
         $mform->setType('id', PARAM_INT);
@@ -41,16 +40,12 @@ class auth_whia_domainform extends moodleform {
 
         if (!empty($id) and ($domain = $DB->get_field('auth_whia_domain', 'name', array('id' => $id))) ) {
             $mform->addElement('static', 'currentname', get_string('domain:currentname', 'auth_whia'), $domain);
-
-            $mform->addElement('hidden', 'domainname');
-            $mform->setType('domainname', PARAM_HOST);
-            $mform->setDefault('domainname', $domain);
         }
         $strname   = get_string('domain:name', 'auth_whia');
         $strsubmit = get_string('button:save', 'auth_whia');
 
-        $mform->addElement('text', 'name', $strname, array('size' => 20));
-        $mform->setType('name', PARAM_RAW);
+        $mform->addElement('text', 'name', $strname, array('size' => 30));
+        $mform->setType('name', PARAM_HOST);
         $mform->addRule('name', $strrequired, 'required', null, 'client');
 
         $this->add_action_buttons(true, $strsubmit);
