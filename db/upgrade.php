@@ -35,5 +35,19 @@ function xmldb_auth_whia_upgrade($oldversion) {
         // WHIA savepoint reached.
         upgrade_plugin_savepoint(true, 2016020802, 'auth', 'whia');
     }
-    return true;
+
+    if ($oldversion < 2016020812) {
+
+        // Define field cohortid to be added to auth_whia_domain.
+        $table = new xmldb_table('auth_whia_domain');
+        $field = new xmldb_field('cohortid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, '0', 'name');
+
+        // Conditionally launch add field cohortid.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Monitor savepoint reached.
+        upgrade_plugin_savepoint(true, 2016020812, 'tool', 'monitor');
+    }
 }
