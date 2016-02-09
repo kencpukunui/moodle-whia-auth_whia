@@ -48,6 +48,6 @@ function xmldb_auth_whia_upgrade($oldversion) {
         }
 
         // Monitor savepoint reached.
-        upgrade_plugin_savepoint(true, 2016020813, 'tool', 'monitor');
+        upgrade_plugin_savepoint(true, 2016020813, 'auth', 'whia');
     }
 }
