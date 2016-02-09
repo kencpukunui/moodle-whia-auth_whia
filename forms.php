@@ -43,7 +43,7 @@ class auth_whia_domainform extends moodleform {
             $mform->addElement('static', 'currentname', get_string('domain:currentname', 'auth_whia'), $domain);
 
             $mform->addElement('hidden', 'domainname');
-            $mform->setType('domainname', PARAM_RAW);
+            $mform->setType('domainname', PARAM_HOST);
             $mform->setDefault('domainname', $domain);
         }
         $strname   = get_string('domain:name', 'auth_whia');
