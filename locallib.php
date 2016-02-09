@@ -21,7 +21,7 @@ function auth_whia_get_domains_table() {
     global $DB, $OUTPUT;
 
     $table = new html_table();
-    $table->head  = array(get_string('domain:name', 'auth_whia'), '');
+    $table->head  = array(get_string('domain:names', 'auth_whia'), '');
     $table->align = array('left', 'center');
 
     if ($suburbs = $DB->get_records_menu('auth_whia_domain', null, 'name', 'id, name', 0, 0)) {

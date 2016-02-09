@@ -26,6 +26,7 @@ $string['domain:heading'] = 'Email Domain Cohort Enrolment';
 $string['domain:insert'] = 'Email domain added';
 $string['domain:missing:domain'] = 'Email domain is required';
 $string['domain:name'] = 'Email domain';
+$string['domain:names'] = 'Email domains';
 $string['domain:update'] = 'Email domain updated: {$a}';
 $string['email:account:confirm'] = 'Thank you for registering for the Water Corporation Water Efficiency Online Training.'.
 'The following is a record of your registration details that you should keep in a secure place.'.
