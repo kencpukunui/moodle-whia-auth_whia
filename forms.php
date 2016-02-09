@@ -51,7 +51,11 @@ class auth_whia_domainform extends moodleform {
 
         $cohortsmenu = array("Select a cohort");
 
-        if ($cohorts = $DB->get_fieldset_select('cohort', 'name', '', null)) {
+        $sql = "
+            SELECT id,name from {cohort} ORDER BY name
+        ";
+
+        if ($cohorts = $DB->get_records_sql($sql)) {
 print_object($cohorts);
             $cohortsmenu .= $cohorts;
 
