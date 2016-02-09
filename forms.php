@@ -48,6 +48,19 @@ class auth_whia_domainform extends moodleform {
         $mform->setType('name', PARAM_HOST);
         $mform->addRule('name', $strrequired, 'required', null, 'client');
 
+        $cohortsmenu = array("Select a cohort");
+
+        if ($cohorts = $DB->get_fieldset_select('cohort', 'name', '', null, 'name')) {
+
+            $cohortsmenu .= $cohorts;
+
+            $cohortselect = $sform->addElement('select', 'cohortid', get_string('domain:cohort', 'auth_whia'),
+                $cohorts));
+            $cohortselect->setSelected(empty($myuser->profile_field_suburb) ? 0 : $myuser->profile_field_suburb);
+//  array_merge(array(get_string('selectasuburb', 'auth_whia')),
+
+        }
+
         $this->add_action_buttons(true, $strsubmit);
     }
 
