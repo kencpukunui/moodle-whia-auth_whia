@@ -52,7 +52,7 @@ class auth_whia_domainform extends moodleform {
         $cohortsmenu = array("Select a cohort");
 
         if ($cohorts = $DB->get_fieldset_select('cohort', 'id,name', '', null)) {
-
+print_object($cohorts);
             $cohortsmenu .= $cohorts;
 
             $cohortselect = $mform->addElement('select', 'cohortid', get_string('domain:cohort', 'auth_whia'), $cohortsmenu);
