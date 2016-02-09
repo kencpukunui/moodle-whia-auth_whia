@@ -15,6 +15,7 @@ $string['button:save'] = 'Save domain';
 $string['domain:currentname'] = 'Current Email domain';
 $string['domain:add'] = 'Email domain added: {$a}';
 $string['domain:delete'] = 'Email domain deleted: {$a}';
+$string['domain:error:delete'] = 'Error deleting record';
 $string['domain:delete:heading'] = 'Email domain deletion';
 $string['domain:delete:confirm'] = 'Are you absolutely sure you want to delete email domain: {$a}?';
 $string['domain:error:exists'] = 'Email domain already exists';

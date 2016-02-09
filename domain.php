@@ -41,6 +41,16 @@ if ($form->is_cancelled()) { // Form cancelled?
     exit;
 } else if ($data = $form->get_data()) { // Form submitted?
 // PARAM_HOST
+
+    if ($data->delete and isset($data->confirm)) {
+        if ($DB->delete_records('auth_whia_domain', array('id' => $data->delete))) {
+            $strcontinue = get_string('domain:delete', 'auth_whia');
+        } else {
+            $strcontinue = get_string('domain:error:delete', 'auth_whia');
+        }
+        redirect(new moodle_url($returnurl), $strcontinue);
+        exit;
+    }
     if ($data->id) {
         if ($DB->update_record('auth_whia_domain', $data)) {
             $strcontinue = get_string('domain:update', 'auth_whia');
@@ -62,7 +72,6 @@ if ($form->is_cancelled()) { // Form cancelled?
 echo $OUTPUT->header();
 
 if (!empty($delete)) {
-
 
     $domainname = $DB->get_field('auth_whia_domain', 'name', array('id' => $delete));
 
