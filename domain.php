@@ -15,16 +15,18 @@ require_once('./locallib.php');
 require_once('./forms.php');
 require_once($CFG->dirroot.'/lib/adminlib.php');
 
-$id                 = optional_param('id', 0, PARAM_INT);
-$delete             = optional_param('delete', 0, PARAM_INT);
-$confirm            = optional_param('confirm', '', PARAM_ALPHANUM);
-$returnurl          = '/auth/whia/domain.php';
-$form               = new auth_whia_domainform(null, $id);
-$strpluginname      = get_string('pluginname', 'auth_whia');
-$systemcontext      = context_system::instance();
-
 admin_externalpage_setup('auth_whia_domain');
+
+$systemcontext = context_system::instance();
+$strpluginname = get_string('pluginname', 'auth_whia');
+
 require_capability('auth/whia:domainconfig', $systemcontext);
+
+$id      = optional_param('id', 0, PARAM_INT);
+$delete  = optional_param('delete', 0, PARAM_INT);
+$confirm = optional_param('confirm', '', PARAM_ALPHANUM);
+
+$returnurl = '/auth/whia/domain.php';
 
 $PAGE->set_url($returnurl);
 $PAGE->set_context($systemcontext);
@@ -32,6 +34,7 @@ $PAGE->set_title("WHIA - Domains");
 $PAGE->set_pagelayout('report');
 $PAGE->set_heading("WHIA");
 
+$form = new auth_whia_domainform(null, $id);
 
 if ($form->is_cancelled()) { // Form cancelled?
     redirect(new moodle_url($returnurl));
