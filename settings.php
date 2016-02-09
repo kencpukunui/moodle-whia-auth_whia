@@ -16,6 +16,8 @@ defined('MOODLE_INTERNAL') || die;
 
 $ADMIN->add('root', new admin_category('auth_whia', get_string('pluginname', 'auth_whia')));
 
-$ADMIN->add('auth_whia', new admin_externalpage('auth_whia_domain', get_string('government', 'auth_whia'),
-            new moodle_url('/auth/whia/domain.php'),
-            'auth/whia:domainconfig'));
+$ADMIN->add('auth_whia',
+                new admin_externalpage('auth_whia_domain', get_string('domain:heading', 'auth_whia'),
+                new moodle_url('/auth/whia/domain.php'),
+                'auth/whia:domainconfig')
+);

@@ -62,8 +62,12 @@ if ($form->is_cancelled()) { // Form cancelled?
 echo $OUTPUT->header();
 
 if (!empty($delete)) {
-    echo $OUTPUT->heading(get_string('deletedomain', 'auth_whia', $deletedata->name));
-    echo $OUTPUT->confirm(get_string('domain:delete:confirm', 'auth_whia', $deletedata->name),
+
+
+    $domainname = $DB->get_field('auth_whia_domain', 'name', array('id' => $delete));
+
+    echo $OUTPUT->heading(get_string('domain:delete:heading', 'auth_whia', $domainname));
+    echo $OUTPUT->confirm(get_string('domain:delete:confirm', 'auth_whia', $domainname),
         new moodle_url($returnurl, array('delete' => $delete, 'confirm' => md5('delete'.$delete))),
         $returnurl);
 } else {

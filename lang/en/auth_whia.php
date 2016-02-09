@@ -15,6 +15,7 @@ $string['button:save'] = 'Save domain';
 $string['domain:currentname'] = 'Current Email domain';
 $string['domain:add'] = 'Email domain added: {$a}';
 $string['domain:delete'] = 'Email domain deleted: {$a}';
+$string['domain:delete:heading'] = 'Email domain deletion';
 $string['domain:delete:confirm'] = 'Are you absolutely sure you want to delete email domain: {$a}?';
 $string['domain:error:exists'] = 'Email domain already exists';
 $string['domain:error:insert'] = 'There was a problem inserting the record in the database';
@@ -34,11 +35,8 @@ $string['email:account:confirm'] = 'Thank you for registering for the Water Corp
 "\n\n".'To log-in and complete a training course, please click on the following link ({$a->website}) and select a course.'.
 "\n\n".'For help, contact the Water Corporation Service Desk on 9420 3090, or email ITServiceDesk@watercorporation.com.au'.
 "\n\n".'Water Corporation';
-$string['emaildomain:help'] = '
-<p>This training has been developed to assist those managing water in large commercial facilities or local government.
-To help us ensure this information is relevant please tell us whether you are from a Local Government or from a Business.</p>
-<p>If you are not from either and would just like to complete the training for your own information please select the
-“I’m not from a Business” option.</p>
+$string['emaildomain_help'] = '
+<p>By entering an email domain here allows users, on confirmation of their account to be inserted into a cohort that is specially configured to </p>
 ';
 $string['pluginname'] = 'WHIA Email Domain Cohort Enrolment';
 $string['text:failed'] = 'Failed to create a new email domain';

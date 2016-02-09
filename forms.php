@@ -64,7 +64,7 @@ class auth_whia_domainform extends moodleform {
         $errors = parent::validation($data, $files);
 
         if ($DB->record_exists('auth_whia_domain', array('name' => $data['name']))) {
-            $errors['name'] = get_string('errsuburbnameexists', 'auth_whia');
+            $errors['name'] = get_string('domain:error:exists', 'auth_whia');
         }
         return $errors;
     }
