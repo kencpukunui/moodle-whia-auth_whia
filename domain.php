@@ -31,9 +31,9 @@ $returnurl = '/auth/whia/domain.php';
 $PAGE->set_url($returnurl);
 $PAGE->set_context($systemcontext);
 $PAGE->set_title("WHIA - Domains");
-$PAGE->set_pagelayout('report');
+$PAGE->set_pagelayout('standard');
 $PAGE->set_heading("WHIA");
-
+    print_object(get_defined_vars());
 $form = new auth_whia_domainform(null, $id);
 
 if ($form->is_cancelled()) { // Form cancelled?
@@ -41,7 +41,7 @@ if ($form->is_cancelled()) { // Form cancelled?
     exit;
 } else if ($data = $form->get_data()) { // Form submitted?
 
-    print_object(get_defined_vars());
+
     if ($data->delete and isset($data->confirm)) {
         if ($DB->delete_records('auth_whia_domain', array('id' => $data->delete))) {
             $strcontinue = get_string('domain:delete', 'auth_whia');
