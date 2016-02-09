@@ -54,8 +54,7 @@ class auth_whia_domainform extends moodleform {
 
             $cohortsmenu .= $cohorts;
 
-            $cohortselect = $sform->addElement('select', 'cohortid', get_string('domain:cohort', 'auth_whia'),
-                $cohorts));
+            $cohortselect = $sform->addElement('select', 'cohortid', get_string('domain:cohort', 'auth_whia'), $cohortsmenu);
             $cohortselect->setSelected(empty($myuser->profile_field_suburb) ? 0 : $myuser->profile_field_suburb);
 //  array_merge(array(get_string('selectasuburb', 'auth_whia')),
 
