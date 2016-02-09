@@ -39,19 +39,15 @@ class auth_whia_domainform extends moodleform {
         $mform->setType('id', PARAM_INT);
         $mform->setDefault('id', $id);
 
-        if (!empty($id) and ($suburb = $DB->get_field('auth_whia_domain', 'name', array('id' => $id))) ) {
-            $mform->addElement('static', 'currentname', get_string('currentname', 'auth_whia'), $suburb);
+        if (!empty($id) and ($domain = $DB->get_field('auth_whia_domain', 'name', array('id' => $id))) ) {
+            $mform->addElement('static', 'currentname', get_string('domain:currentname', 'auth_whia'), $domain);
 
-            $mform->addElement('hidden', 'domainanme');
-            $mform->setType('domainanme', PARAM_RAW);
-            $mform->setDefault('domainanme', $domainanme);
-
-            $strname   = get_string('newname', 'auth_whia');
-            $strsubmit = get_string('savechanges', 'auth_whia');
-        } else {
-            $strname   = get_string('name', 'auth_whia');
-            $strsubmit = get_string('adddomain', 'auth_whia');
+            $mform->addElement('hidden', 'domainname');
+            $mform->setType('domainname', PARAM_RAW);
+            $mform->setDefault('domainname', $domainanme);
         }
+        $strname   = get_string('domain:name', 'auth_whia');
+        $strsubmit = get_string('button:save', 'auth_whia');
 
         $mform->addElement('text', 'name', $strname, array('size' => 20));
         $mform->setType('name', PARAM_RAW);
