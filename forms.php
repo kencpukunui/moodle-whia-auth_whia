@@ -44,10 +44,7 @@ class auth_whia_domainform extends moodleform {
 
             $mform->addElement('hidden', 'domainname');
             $mform->setType('domainname', PARAM_RAW);
-            $mform->setDefault('domainname', $domainanme);
-
-            $strname   = get_string('domain:name', 'auth_whia');
-            $strsubmit = get_string('button:save', 'auth_whia');
+            $mform->setDefault('domainname', $domain->name);
         }
         $strname   = get_string('domain:name', 'auth_whia');
         $strsubmit = get_string('button:save', 'auth_whia');
