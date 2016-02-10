@@ -24,20 +24,26 @@ function auth_whia_get_domains_table() {
     $table->head  = array(get_string('domain:names', 'auth_whia'), '');
     $table->align = array('left', 'center');
 
-    if ($domains = $DB->get_records_menu('auth_whia_domain', null, 'name', 'id, name', 0, 0)) {
-        foreach ($domains as $id => $name) {
+    $sql = "
+        SELECT awd.*, c.name as cohort
+        FROM {auth_whia_domain} AS awd
+        JOIN {cohort} AS c ON c.id = awd.cohortid
+    ";
+    if ($domains = $DB->get_records_sql($sql)) {
+        foreach ($domains as $domain) {
             $row = new html_table_row();
 
             // Add the control links/icons.
             $icons = array(
                 html_writer::link(
-                    new moodle_url('/auth/whia/domain.php', array('id' => $id)),
+                    new moodle_url('/auth/whia/domain.php', array('id' => $domain->id)),
                     $OUTPUT->pix_icon('t/edit', get_string('edit'))),
                 html_writer::link(
-                    new moodle_url('/auth/whia/domain.php', array('delete' => $id)),
+                    new moodle_url('/auth/whia/domain.php', array('delete' => $domain->id)),
                     $OUTPUT->pix_icon('t/delete', get_string('delete')))
                 );
-            $row->cells[] = new html_table_cell($name);
+            $row->cells[] = new html_table_cell($domain->name);
+            $row->cells[] = new html_table_cell($domain->cohort);
             $row->cells[] = implode('&nbsp;', $icons);
 
             $table->data[] = $row;
