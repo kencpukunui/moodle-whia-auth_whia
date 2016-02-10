@@ -15,5 +15,5 @@ defined('MOODLE_INTERNAL') || die;
 require_once($CFG->dirroot.'/auth/whia/locallib.php');
 
 function xmldb_auth_whia_install() {
-    \auth_watereff\install::execute();
+    \auth_whia\install::execute();
 }
