@@ -34,6 +34,7 @@ class auth_whia_domainform extends moodleform {
         $id             = $this->_customdata;
         $strrequired    = get_string('required');
         $domain         = null;
+        $cohortid       = 'domain:form:cohort';
 
         $mform->addElement('hidden', 'id');
         $mform->setType('id', PARAM_INT);
@@ -42,6 +43,7 @@ class auth_whia_domainform extends moodleform {
         if (!empty($id) and ($domain = $DB->get_record('auth_whia_domain', array('id' => $id)))) {
 
             $mform->addElement('static', 'currentname', get_string('domain:currentname', 'auth_whia'), $domain->name);
+            $cohortid = "$domain->cohortid";
         }
         print_object($domain);
         $strname   = get_string('domain:name', 'auth_whia');
@@ -64,7 +66,7 @@ class auth_whia_domainform extends moodleform {
                 $cohortsmenu["$id"] = $name;
             }
             $cohortselect = $mform->addElement('select', 'cohortid', get_string('domain:cohort', 'auth_whia'), $cohortsmenu);
-            $cohortselect->setSelected($domain->cohortid);
+            $cohortselect->setSelected($cohortid);
 //  array_merge(array(get_string('selectasuburb', 'auth_whia')),
 
         }
