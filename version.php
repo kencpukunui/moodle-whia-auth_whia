@@ -12,7 +12,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version    = 2016020817;
+$plugin->version    = 2016020819;
 $plugin->requires   = 2015111602;
 $plugin->maturity   = MATURITY_STABLE;
 $plugin->component  = 'auth_whia';
