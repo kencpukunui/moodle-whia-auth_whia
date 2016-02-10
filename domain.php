@@ -22,9 +22,10 @@ $strpluginname = get_string('pluginname', 'auth_whia');
 
 require_capability('auth/whia:domainconfig', $systemcontext);
 
-$id      = optional_param('id', 0, PARAM_INT);
-$delete  = optional_param('delete', 0, PARAM_INT);
-$confirm = optional_param('confirm', '', PARAM_ALPHANUM);
+$id         = optional_param('id', 0, PARAM_INT);
+$cohortid   = optional_param('cohortid', 0, PARAM_INT);
+$delete     = optional_param('delete', 0, PARAM_INT);
+$confirm    = optional_param('confirm', '', PARAM_ALPHANUM);
 
 $returnurl = '/auth/whia/domain.php';
 
