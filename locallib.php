@@ -25,9 +25,9 @@ function auth_whia_get_domains_table() {
     $table->align = array('left', 'center');
 
     $sql = "
-        SELECT awd.*, c.name as cohort
+        SELECT awd.*, if (c.name IS NULL, 'Unassigned', c.name) as cohort
         FROM {auth_whia_domain} AS awd
-        JOIN {cohort} AS c ON c.id = awd.cohortid
+        LEFT JOIN {cohort} AS c ON c.id = awd.cohortid
     ";
     if ($domains = $DB->get_records_sql($sql)) {
         foreach ($domains as $domain) {
