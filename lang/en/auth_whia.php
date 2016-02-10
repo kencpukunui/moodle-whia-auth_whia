@@ -27,6 +27,7 @@ $string['domain:form:cohort'] = 'Select a cohort';
 $string['domain:heading'] = 'Email Domain Cohort Enrolment';
 $string['domain:insert'] = 'Email domain added';
 $string['domain:missing:domain'] = 'Email domain is required';
+$string['domain:cohorts'] = 'Assigned Cohort';
 $string['domain:name'] = 'Email domain';
 $string['domain:names'] = 'Email domains';
 $string['domain:update'] = 'Email domain updated: {$a}';

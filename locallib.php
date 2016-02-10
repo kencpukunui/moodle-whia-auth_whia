@@ -21,8 +21,8 @@ function auth_whia_get_domains_table() {
     global $DB, $OUTPUT;
 
     $table = new html_table();
-    $table->head  = array(get_string('domain:names', 'auth_whia'), '');
-    $table->align = array('left', 'center');
+    $table->head  = array(get_string('domain:name', 'auth_whia'), get_string('domain:cohorts', 'auth_whia'), '');
+    $table->align = array('left', 'left', 'center');
 
     $sql = "
         SELECT awd.*, if (c.name IS NULL, 'Unassigned', c.name) as cohort
@@ -35,9 +35,11 @@ function auth_whia_get_domains_table() {
 
             // Add the control links/icons.
             $icons = array(
+                /*
                 html_writer::link(
                     new moodle_url('/auth/whia/domain.php', array('id' => $domain->id)),
                     $OUTPUT->pix_icon('t/edit', get_string('edit'))),
+                    */
                 html_writer::link(
                     new moodle_url('/auth/whia/domain.php', array('delete' => $domain->id)),
                     $OUTPUT->pix_icon('t/delete', get_string('delete')))
