@@ -11,7 +11,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die;
-$string['button:save'] = 'Save domain';
+$string['button:save'] = 'Save domain cohort';
 $string['domain:add'] = 'Email domain added: {$a}';
 $string['domain:cohort'] = 'Cohort';
 $string['domain:currentname'] = 'Current Email domain';
