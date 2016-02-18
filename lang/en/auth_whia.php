@@ -1,11 +1,11 @@
 <?php
 /**
- * Custom authentication for Water Corporation WHIA
+ * Custom authentication for WHIA project
  *
  * String definitions
  *
- * @package    auth_watereff
- * @author     Shane Elliott <shane@pukunui.com>, Pukunui
+ * @package    auth_whia
+ * @author     Bevan Holman <bevan@pukunui.com>, Pukunui
  * @copyright  2015 onwards, Pukunui
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
